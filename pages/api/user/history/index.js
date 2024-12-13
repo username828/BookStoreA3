@@ -19,9 +19,9 @@ export default async function handler(req,res) {
         }
 
         await db.collection('userHistory').insertOne(newQuery);
-        const book=await db.collection('books').findOne({title:query.toLowerCase()})
+        const book=await db.collection('books').findOne({title:query})
         const author=await db.collection('authors').findOne({name:query})
-        const genre=await db.collection('genres').findOne({genre:query})
+        const genre=await db.collection('genres').findOne({name:query})
 
         return res.status(201).json({ message: "Search query added successfully." ,book,author,genre});
     }

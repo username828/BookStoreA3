@@ -53,7 +53,7 @@ export default function SearchHistory() {
             }
 
             else if(data.author){
-                router.push(`/authors`)
+                router.push(`/authors/${data.author.id}`)
             }
 
             else if (data.genre){
